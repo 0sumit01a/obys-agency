@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: #fff;
+      font-family: "Plain Light";
+    }
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+    #loader {
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      z-index: 999;
+      background-color: #0B0B0B;
+      padding: 25vh 10vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    .line h1 {
+      font-size: 6vw;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    #image-display {
+      width: 150px;
+      height: 150px;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #image-display img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    #main {
+      position: relative;
+      background-color: #111;
+    }
+    #page1 {
+      height: 100vh;
+      width: 100%;
+      background-color: #151515;
+    }
+  </style>
+</head>
+<body>
+  <div id="loader">
+    <div id="image-display">
+      <img id="loading-image" src="" alt="Loading Image">
+    </div>
+    <div class="line">
+      <h1>Web Experiences</h1>
+    </div>
+    <div class="line">
+      <h1>is loading right now</h1>
+    </div>
+  </div>
+  <div id="main">
+    <div id="page1"></div>
+    <div id="page2"></div>
+    <div id="page3"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    // Image Array
+    const images = [
+      "https://via.placeholder.com/150/FF0000", // Replace with your image URLs
+      "https://via.placeholder.com/150/00FF00",
+      "https://via.placeholder.com/150/0000FF",
+      "https://via.placeholder.com/150/FFFF00",
+      "https://via.placeholder.com/150/FF00FF",
+      "https://via.placeholder.com/150/00FFFF"
+    ];
+
+    const loadingImage = document.getElementById('loading-image');
+    let currentIndex = 0;
+
+    // Change images every 500ms
+    const imageInterval = setInterval(() => {
+      loadingImage.src = images[currentIndex];
+      currentIndex = (currentIndex + 1) % images.length;
+    }, 45);
+
+    // // Simulate loading completion after 5 seconds
+    // setTimeout(() => {
+    //   clearInterval(imageInterval);
+    //   document.getElementById('loader').style.display = 'none';
+    // }, 5000);
+  </script>
+</body>
+</html>
