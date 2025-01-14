@@ -37,7 +37,7 @@ function loadingAnimation() {
     y: 1600,
     opacity: 0,
     duration: 0.6,
-    ease: "Power4.easeOut",
+    ease: "Power4",
   });
   t1.to("#loader", {
     display: "none",
